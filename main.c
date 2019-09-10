@@ -13,13 +13,13 @@ int count_tokens(const char *input) {
   return 0;
 }
 
-int split_into_strings(char *input, char ***output) {
+int split_into_strings(const char *input, char ***output) {
   (void) input;
   (void) output;
   return 0;
 }
 
-int split_into_tokens(char *input, struct Token **output) {
+int split_into_tokens(const char *input, struct Token **output) {
   (void) input;
   (void) output;
   return 0;
