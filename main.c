@@ -1,10 +1,9 @@
-#include <stdio.h>
 #include <string.h>
 #include <assert.h>
 #include <stdlib.h>
 
 struct Token {
-  char *token;
+  const char *token;
   size_t token_length; // Number of characters
 };
 
@@ -26,17 +25,17 @@ int split_into_tokens(const char *input, struct Token **output) {
 }
 
 void testCountTokens() {
-  char input[17];
-  strcpy(input, "This is a string");
-  assert(4 == count_tokens(input));
+  assert(0 == count_tokens(""));
+  assert(0 == count_tokens(0));
+  assert(4 == count_tokens("This is a string"));
+  assert(1 == count_tokens(" One "));
+  assert(2 == count_tokens("One  Two "));
+  assert(6 == count_tokens("This is an  even longer  string "));
 }
 
 void testMakeTokenStrings() {
-  char input[17];
-  strcpy(input, "This is a string");
-
   char **tokens = 0;
-  assert(4 == split_into_strings(input, &tokens));
+  assert(4 == split_into_strings("This is a string", &tokens));
   assert(0 == strcmp(tokens[0], "This"));
   assert(0 == strcmp(tokens[1], "is"));
   assert(0 == strcmp(tokens[2], "a"));
@@ -44,11 +43,8 @@ void testMakeTokenStrings() {
 }
 
 void testMakeTokenStructs() {
-  char input[17];
-  strcpy(input, "This is a string");
-
   struct Token *tokens = 0;
-  assert(4 == split_into_tokens(input, &tokens));
+  assert(4 == split_into_tokens("This is a string", &tokens));
   assert(tokens[0].token_length == 4);
   assert(0 == strncmp(tokens[0].token, "This", 4));
   assert(tokens[1].token_length == 2);
