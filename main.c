@@ -7,17 +7,36 @@ struct Token {
   size_t token_length; // Number of characters
 };
 
+/**
+ * Counts the number of tokens in the input string
+ * Tokens are delimited by one or more spaces
+ * @param input
+ * @return the number of tokens in input
+ */
 int count_tokens(const char *input) {
   (void) input;
   return 0;
 }
 
+/**
+ * Splits the input string into tokens
+ * Tokens are delimited by one or more spaces
+ * @param input string to be split
+ * @param output the tokens
+ * @return the number of tokens in input
+ */
 int split_into_strings(const char *input, char ***output) {
   (void) input;
   (void) output;
   return 0;
 }
 
+/**
+ * Splits the input string into Token structs
+ * @param input string to be split
+ * @param output array of Token
+ * @return the number of tokens in input
+ */
 int split_into_tokens(const char *input, struct Token **output) {
   (void) input;
   (void) output;
